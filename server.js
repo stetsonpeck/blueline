@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use("/blog", require("./routes/blogRoutes"));
 
 // Database connection \\
-mongoose.connect("mongodb://localhost/random", function(err) {
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/random", function(err) {
     if (err) throw err;
     console.log("Successfully connected to the database");
 })
